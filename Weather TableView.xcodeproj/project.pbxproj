@@ -10,13 +10,21 @@
 		220AF2B72A71848C0069C557 /* FirstScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220AF2B62A71848C0069C557 /* FirstScreenAssembly.swift */; };
 		221E54182A4368FD00818428 /* WeatherVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E54172A4368FD00818428 /* WeatherVIewModel.swift */; };
 		221E541A2A436B5400818428 /* WeatherDtoConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E54192A436B5400818428 /* WeatherDtoConverter.swift */; };
+		22335E662A79768E000DE605 /* SecondScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22335E652A79768E000DE605 /* SecondScreenView.swift */; };
+		22335E6A2A798D08000DE605 /* SecondScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22335E692A798D08000DE605 /* SecondScreenAssembly.swift */; };
 		2238957D2A4CAB42001872D5 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238957C2A4CAB42001872D5 /* RemoteImage.swift */; };
 		223FDA022A53485A000B130E /* FirstScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FDA012A53485A000B130E /* FirstScreenModel.swift */; };
+		2248DA7A2A7ABED500C77B4F /* ThirdScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248DA792A7ABED500C77B4F /* ThirdScreenView.swift */; };
+		2248DA7C2A7AC62500C77B4F /* ThirdScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2248DA7B2A7AC62500C77B4F /* ThirdScreenAssembly.swift */; };
 		22656A4E2A14171100AE8223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22656A4D2A14171100AE8223 /* AppDelegate.swift */; };
 		22656A502A14171100AE8223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22656A4F2A14171100AE8223 /* SceneDelegate.swift */; };
 		22656A522A14171100AE8223 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22656A512A14171100AE8223 /* FirstViewController.swift */; };
 		22656A572A14171400AE8223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22656A562A14171400AE8223 /* Assets.xcassets */; };
 		22656A5A2A14171400AE8223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22656A582A14171400AE8223 /* LaunchScreen.storyboard */; };
+		229A88BE2A953D40004B7465 /* CollectionScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229A88BD2A953D40004B7465 /* CollectionScreenController.swift */; };
+		229A88C02A9543FA004B7465 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229A88BF2A9543F9004B7465 /* CollectionViewCell.swift */; };
+		22A947A02AA4F18B007934C7 /* CollectionScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9479F2AA4F18B007934C7 /* CollectionScreenView.swift */; };
+		22A947A22AA666CF007934C7 /* newCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A947A12AA666CF007934C7 /* newCollectionViewController.swift */; };
 		22B1DA562A14275D00B6D410 /* Custome Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1DA552A14275D00B6D410 /* Custome Cell.swift */; };
 		22C4714E2A47608500694E5A /* CityesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C4714D2A47608500694E5A /* CityesViewController.swift */; };
 		22C9EDE42A6849E900F8AC1B /* FirstScreevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C9EDE32A6849E900F8AC1B /* FirstScreevView.swift */; };
@@ -31,8 +39,12 @@
 		220AF2B62A71848C0069C557 /* FirstScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenAssembly.swift; sourceTree = "<group>"; };
 		221E54172A4368FD00818428 /* WeatherVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVIewModel.swift; sourceTree = "<group>"; };
 		221E54192A436B5400818428 /* WeatherDtoConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDtoConverter.swift; sourceTree = "<group>"; };
+		22335E652A79768E000DE605 /* SecondScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenView.swift; sourceTree = "<group>"; };
+		22335E692A798D08000DE605 /* SecondScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenAssembly.swift; sourceTree = "<group>"; };
 		2238957C2A4CAB42001872D5 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		223FDA012A53485A000B130E /* FirstScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenModel.swift; sourceTree = "<group>"; };
+		2248DA792A7ABED500C77B4F /* ThirdScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreenView.swift; sourceTree = "<group>"; };
+		2248DA7B2A7AC62500C77B4F /* ThirdScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreenAssembly.swift; sourceTree = "<group>"; };
 		22656A4A2A14171100AE8223 /* Weather TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather TableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22656A4D2A14171100AE8223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22656A4F2A14171100AE8223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +52,10 @@
 		22656A562A14171400AE8223 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22656A592A14171400AE8223 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22656A5B2A14171400AE8223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229A88BD2A953D40004B7465 /* CollectionScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenController.swift; sourceTree = "<group>"; };
+		229A88BF2A9543F9004B7465 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		22A9479F2AA4F18B007934C7 /* CollectionScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenView.swift; sourceTree = "<group>"; };
+		22A947A12AA666CF007934C7 /* newCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newCollectionViewController.swift; sourceTree = "<group>"; };
 		22B1DA552A14275D00B6D410 /* Custome Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custome Cell.swift"; sourceTree = "<group>"; };
 		22C4714D2A47608500694E5A /* CityesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityesViewController.swift; sourceTree = "<group>"; };
 		22C9EDE32A6849E900F8AC1B /* FirstScreevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreevView.swift; sourceTree = "<group>"; };
@@ -62,12 +78,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22335E642A7975C5000DE605 /* SecondScreen */ = {
+			isa = PBXGroup;
+			children = (
+				22335E692A798D08000DE605 /* SecondScreenAssembly.swift */,
+				229A88BD2A953D40004B7465 /* CollectionScreenController.swift */,
+				22A9479F2AA4F18B007934C7 /* CollectionScreenView.swift */,
+				229A88BF2A9543F9004B7465 /* CollectionViewCell.swift */,
+				22E6E7212A3B1B0C006FB6ED /* SecondViewConroller.swift */,
+				22335E652A79768E000DE605 /* SecondScreenView.swift */,
+				22A947A12AA666CF007934C7 /* newCollectionViewController.swift */,
+			);
+			path = SecondScreen;
+			sourceTree = "<group>";
+		};
+		22335E682A798B13000DE605 /* ThirdScreen */ = {
+			isa = PBXGroup;
+			children = (
+				22C4714D2A47608500694E5A /* CityesViewController.swift */,
+				2248DA7B2A7AC62500C77B4F /* ThirdScreenAssembly.swift */,
+				2248DA792A7ABED500C77B4F /* ThirdScreenView.swift */,
+			);
+			path = ThirdScreen;
+			sourceTree = "<group>";
+		};
 		223FDA002A534714000B130E /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
+				220AF2B62A71848C0069C557 /* FirstScreenAssembly.swift */,
 				22656A512A14171100AE8223 /* FirstViewController.swift */,
 				223FDA012A53485A000B130E /* FirstScreenModel.swift */,
 				22C9EDE32A6849E900F8AC1B /* FirstScreevView.swift */,
+				22B1DA552A14275D00B6D410 /* Custome Cell.swift */,
 				22C9EDE52A685F8300F8AC1B /* Date+Conversion.swift */,
 			);
 			path = FirstScreen;
@@ -98,13 +140,11 @@
 				22656A4F2A14171100AE8223 /* SceneDelegate.swift */,
 				22F37D172A2E6050000E5DC7 /* WeatherDTO.swift */,
 				221E54172A4368FD00818428 /* WeatherVIewModel.swift */,
-				22E6E7212A3B1B0C006FB6ED /* SecondViewConroller.swift */,
-				22B1DA552A14275D00B6D410 /* Custome Cell.swift */,
 				223FDA002A534714000B130E /* FirstScreen */,
-				22C4714D2A47608500694E5A /* CityesViewController.swift */,
+				22335E642A7975C5000DE605 /* SecondScreen */,
+				22335E682A798B13000DE605 /* ThirdScreen */,
 				221E54192A436B5400818428 /* WeatherDtoConverter.swift */,
 				2238957C2A4CAB42001872D5 /* RemoteImage.swift */,
-				220AF2B62A71848C0069C557 /* FirstScreenAssembly.swift */,
 				22656A582A14171400AE8223 /* LaunchScreen.storyboard */,
 				22656A562A14171400AE8223 /* Assets.xcassets */,
 				22656A5B2A14171400AE8223 /* Info.plist */,
@@ -244,17 +284,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				22656A522A14171100AE8223 /* FirstViewController.swift in Sources */,
+				22335E6A2A798D08000DE605 /* SecondScreenAssembly.swift in Sources */,
+				22A947A02AA4F18B007934C7 /* CollectionScreenView.swift in Sources */,
 				22E6E7222A3B1B0D006FB6ED /* SecondViewConroller.swift in Sources */,
+				2248DA7A2A7ABED500C77B4F /* ThirdScreenView.swift in Sources */,
 				22B1DA562A14275D00B6D410 /* Custome Cell.swift in Sources */,
 				2238957D2A4CAB42001872D5 /* RemoteImage.swift in Sources */,
+				229A88BE2A953D40004B7465 /* CollectionScreenController.swift in Sources */,
 				220AF2B72A71848C0069C557 /* FirstScreenAssembly.swift in Sources */,
 				22C9EDE62A685F8300F8AC1B /* Date+Conversion.swift in Sources */,
 				221E541A2A436B5400818428 /* WeatherDtoConverter.swift in Sources */,
+				229A88C02A9543FA004B7465 /* CollectionViewCell.swift in Sources */,
 				22656A4E2A14171100AE8223 /* AppDelegate.swift in Sources */,
 				223FDA022A53485A000B130E /* FirstScreenModel.swift in Sources */,
 				22C9EDE42A6849E900F8AC1B /* FirstScreevView.swift in Sources */,
 				22C4714E2A47608500694E5A /* CityesViewController.swift in Sources */,
+				2248DA7C2A7AC62500C77B4F /* ThirdScreenAssembly.swift in Sources */,
+				22A947A22AA666CF007934C7 /* newCollectionViewController.swift in Sources */,
 				221E54182A4368FD00818428 /* WeatherVIewModel.swift in Sources */,
+				22335E662A79768E000DE605 /* SecondScreenView.swift in Sources */,
 				22656A502A14171100AE8223 /* SceneDelegate.swift in Sources */,
 				22F37D182A2E6050000E5DC7 /* WeatherDTO.swift in Sources */,
 			);

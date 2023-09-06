@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 
+
 final class FirstScreenView: UIView {
 
     struct Metrix {
@@ -8,8 +9,8 @@ final class FirstScreenView: UIView {
    }
     private lazy var tableViewDelegate: UITableViewDelegate = self
     private var tableViewDataSource: UITableViewDataSource
-    private let cityCoord = CityesViewController()
-    
+    private let colorButton: UIColor = UIColor(red: 64/255, green: 38/255, blue: 98/255, alpha: 1.0)
+    private let touchColorButton: UIColor = UIColor(red: 114/255, green: 99/255, blue: 148/255, alpha: 1.0)
     public init( tableViewDataSource: UITableViewDataSource){
         self.tableViewDataSource = tableViewDataSource
         super.init(frame: .zero)
@@ -26,13 +27,14 @@ final class FirstScreenView: UIView {
         obj.register(CustomCell.self, forCellReuseIdentifier: CustomCell.key)
         obj.backgroundColor = .clear
         obj.delegate = self
-        obj.dataSource = tableViewDataSource
+        obj.dataSource = self.tableViewDataSource
         obj.tableFooterView = UIView()
         return obj
     }()
     
     private lazy var cityLabel: UILabel = {
         let obj = UILabel()
+        obj.backgroundColor = .clear
         obj.text = "Текущее место"
         obj.textAlignment = .center
         obj.font = UIFont(name:"HelveticaNeue-Bold", size: 20)
@@ -41,9 +43,10 @@ final class FirstScreenView: UIView {
     }()
     private lazy var reloadButton: UIButton = {
        let obj = UIButton()
-        obj.backgroundColor = UIColor(red: 31.0/255, green: 30.0/255, blue: 90.0/255, alpha: 1.0)
+        obj.backgroundColor = self.colorButton
         obj.setImage(UIImage(named: "ReloadButton"), for: .normal)
-        obj.addTarget(self, action: #selector(reload), for: .touchUpInside)
+        obj.addTarget(self, action: #selector(reload), for: .touchDown)
+        obj.addTarget(self, action: #selector(buttonNormalMode), for: .touchUpInside)
         obj.layer.cornerRadius = 15
         obj.clipsToBounds = true
         return obj
@@ -73,9 +76,10 @@ final class FirstScreenView: UIView {
     
     private lazy var weekWeatherScreenButton: UIButton = {
         let obj = UIButton()
-        obj.backgroundColor = UIColor(red: 31.0/255, green: 30.0/255, blue: 90.0/255, alpha: 1.0)
+        obj.backgroundColor = self.colorButton
         obj.setTitle("Погода на неделю", for: .normal)
-        obj.addTarget(self, action: #selector(weekScreen), for: .touchUpInside)
+        obj.addTarget(self, action: #selector(weekScreen), for: .touchDown)
+     
         obj.layer.cornerRadius = 15
         obj.clipsToBounds = true
         return obj
@@ -83,7 +87,7 @@ final class FirstScreenView: UIView {
     
     private lazy var changeCityButton: UIButton = {
         let obj = UIButton()
-        obj.backgroundColor = UIColor(red: 31.0/255, green: 30.0/255, blue: 90.0/255, alpha: 1.0)
+        obj.backgroundColor = self.colorButton
         obj.setTitle("Выбор города", for: .normal)
         obj.addTarget(self, action: #selector(changeCity), for: .touchUpInside)
         obj.layer.cornerRadius = 15
@@ -120,6 +124,10 @@ final class FirstScreenView: UIView {
     public var loadWeatherHandler: (() -> Void)?
     public var presentHandler: ((_ alertController: UIAlertController) -> Void)?
     
+    @objc func buttonNormalMode(){
+        self.reloadButton.backgroundColor = self.colorButton
+    }
+    
     @objc func weekScreen(){
         self.weekWeatherTapHandler?()
     }
@@ -130,11 +138,13 @@ final class FirstScreenView: UIView {
     }
     @objc func reload(){
         self.reloadTapHandler?()
+        self.reloadButton.backgroundColor = self.touchColorButton
     }
     private var activityIndicator = UIActivityIndicatorView()
     
+    
+    
     func configur(){
-        self.backgroundColor = UIColor(red: 51.0/255, green: 51.0/255, blue: 153.0/255, alpha: 1.0)
         self.addSubview(self.cityLabel)
         self.addSubview(self.activityIndicator)
         self.addSubview(self.reloadButton)
@@ -236,4 +246,18 @@ extension FirstScreenView: UITableViewDelegate {
     }
     
     
+}
+
+extension FirstScreenView {
+    func setGradientBackground(){
+        let color1 = UIColor(red: 51.0/255 ,green: 20.0/255, blue: 61.0/255, alpha: 1.0).cgColor
+        let color2 = UIColor(red: 52.0/255, green: 28.0/255, blue: 109.0/255, alpha: 1.0).cgColor
+        let color3 = UIColor(red: 51.0/255 ,green: 20.0/255, blue: 61.0/255, alpha: 1.0).cgColor
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = [color1, color2, color3]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

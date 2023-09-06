@@ -5,7 +5,7 @@ import UIKit
 final class CustomCell: UITableViewCell
 {
     static var key: String {
-        return "CustomSell"
+        return "CustomCell"
     }
     
     
@@ -25,7 +25,7 @@ final class CustomCell: UITableViewCell
     
     private let descriptLabel: UILabel = {
         let obj = UILabel()
-        
+        obj.backgroundColor = .clear
         obj.textAlignment = .center
         obj.adjustsFontSizeToFitWidth = true
         obj.numberOfLines += 1
@@ -44,7 +44,6 @@ final class CustomCell: UITableViewCell
     }()
    private let windLabel: UILabel = {
         let obj = UILabel()
-      
         obj.font.withSize(30)
        obj.textAlignment = .center
        obj.textColor = .white
@@ -67,7 +66,7 @@ final class CustomCell: UITableViewCell
 
 private extension CustomCell {
     func makelabelConstraints(){
-        self.contentView.backgroundColor = UIColor(red: 51.0/255, green: 51.0/255, blue: 153.0/255, alpha: 1.0)
+        self.contentView.backgroundColor = .clear
         self.contentView.addSubview(timeLabel)
         self.contentView.addSubview(descriptLabel)
         self.contentView.addSubview(temperatureLabel)

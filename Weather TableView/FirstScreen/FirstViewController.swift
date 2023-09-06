@@ -6,13 +6,13 @@ import UIKit
 
 
 class FirstViewController: UIViewController {
-    
+   
     private let currentDate = Date()
     private let dtoConverter: WeatherDtoConverter
     private var eachThreeHourModel: [EachThreeHourViewModel] = []
-    private var eachWeekDayModel: [EachWeekDayViewModel] = []
+     var eachWeekDayModel: [EachWeekDayViewModel] = []
     
-    init(model: FirstScreenModel, dtoConverter: WeatherDtoConverter){
+    init(model: IFirstScreenModel, dtoConverter: WeatherDtoConverter){
         self.model = model
         self.dtoConverter = dtoConverter
         super.init(nibName: nil, bundle: nil)
@@ -23,7 +23,8 @@ class FirstViewController: UIViewController {
         fatalError("\(#function) has not been implemented")
     }
     
-    private let model: FirstScreenModel
+    var model: IFirstScreenModel
+   
     private lazy var ui: FirstScreenView = {
         let ui = FirstScreenView( tableViewDataSource: self)
         return ui
@@ -32,32 +33,43 @@ class FirstViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.view = self.ui
-        self.ui.configur()
     }
-     
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.ui.setGradientBackground()
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.ui.configur()
+        self.model.loadLocation()
+        self.model.startAnimating = { [weak self] in
+            self?.ui.startAnimating()
+        }
+        self.model.locationDefined = {[weak self] in
+            self?.loadWeather()
+        }
+        self.model.stopAnimating = { [weak self] in
+            self?.ui.stopAnimating()
+        }
         self.ui.reloadTapHandler = { [weak self] in
             self?.loadWeather()
         }
         self.view = self.ui
         self.ui.setCurrentDateView(self.currentDate.dateToString(dateFormat: "EEE,d MMMM, yyyy | HH:mm"))
-        self.model.loadLocation()
+        
         self.ui.weekWeatherTapHandler = {
-            let weekController = SecondViewController()
-            self.navigationController?.pushViewController(weekController, animated: true)
-            weekController.weatherList = self.eachWeekDayModel
+            self.navigationController?.pushViewController(SeconndScreenAssembly.make(eachWeekDayModel: self.eachWeekDayModel), animated: true)
         }
         self.ui.changeCityTapHandler = {
-            self.navigationController?.pushViewController(FirstScreenAssembly.make(), animated: true)
-//            let third = CityesViewController()
-//            self.navigationController?.pushViewController(third, animated: true)
-//            third.cityHandler = { [weak self] name, lat, lon in
-//                guard let self = self else {return}
-//                self.ui.setCityLabelText(name)
-//                self.model.currentCity.latitude = lat
-//                self.model.currentCity.longitude = lon
-//            }
+            self.navigationController?.pushViewController(ThirdScreenAssembly.make(cityTapHandler: {[weak self] name, lon, lat in
+                                   guard let self = self else {return}
+                                   self.ui.setCityLabelText(name)
+                                   self.model.currentCity.latitude = lat
+                                   self.model.currentCity.longitude = lon}), animated: true)
         }
     }
 }
@@ -65,13 +77,6 @@ class FirstViewController: UIViewController {
 private extension FirstViewController {
     func loadWeather(){
         self.ui.startAnimating()
-        
-//        self.model.locationHandler = { [weak self] latitude, longitude in
-//            guard let self = self else {return}
-//            self.model.currentCity.latitude = latitude
-//            self.model.currentCity.longitude = longitude
-//        }
-        
         let successHeandler: (WeatherDto) -> Void = { [weak self] weatherData in
             guard let self = self else {return}
             self.ui.stopAnimating()
@@ -94,7 +99,6 @@ private extension FirstViewController {
         }
         
         self.model.loadWeather(for: self.model.currentCity.latitude, self.model.currentCity.longitude, successHeandler, failureHandler)
-        
     }
 }
 
@@ -135,7 +139,7 @@ extension FirstViewController : UITableViewDelegate, UITableViewDataSource
         //        eachThreeHourModel[indexPath.row].remoteImage.imageDidLoad = { image in
         //            guard let image = image else {return print("error image")}
         //            cell.fill(image: image)}
-        
+        cell.backgroundColor = .clear
         return cell
         
     }
@@ -146,9 +150,4 @@ extension FirstViewController : UITableViewDelegate, UITableViewDataSource
         }.count
         
     }
-    
-    
-    
-    
-    
 }
