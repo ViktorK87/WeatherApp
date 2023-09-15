@@ -1,8 +1,14 @@
+
+// ЭКРАН ВЫБОРА ГОРОДА:
+
+
+import SnapKit
 import UIKit
 
-class CityesViewController: UIViewController {
-    let buttonColor: UIColor = UIColor(red: 102.0/255, green: 102.0/255, blue: 255.0/255, alpha: 0.64)
-    let cityButtonColor: UIColor = UIColor(red: 31.0/255, green: 30.0/255, blue: 90.0/255, alpha: 1.0)
+final class ThirdScreenView: UIView
+{
+   private let buttonColor: UIColor = UIColor(red: 64/255, green: 38/255, blue: 98/255, alpha: 1.0)
+   private let cityButtonColor: UIColor = UIColor(red: 64/255, green: 38/255, blue: 98/255, alpha: 1.0)
     
     private lazy var backButton: UIButton = {
        let obj = UIButton()
@@ -62,39 +68,45 @@ class CityesViewController: UIViewController {
         return obj
     }()
     
-    let london = (name: "Лондон", longitude: 51.5085300, latitude: -0.1257400)
-    let berlin = (name: "Берлин", longitude: 13.4105300, latitude: 52.5243700)
-    let newYork = (name: "Нью Йорк", longitude: -74.0059700, latitude: 40.7142700)
-    let marcel = (name: "Марсель", longitude: 5.3810700, latitude: 43.2969500)
     
-    var cityHandler: ((_ name: String, _ long: Double, _ lat: Double) -> Void)?
+    public var londonWasSelectHandler: (() -> Void)?
+    public var berlinWasSelectHandler: (() -> Void)?
+    public var newYorkWasSelectHandler: (() -> Void)?
+    public var marcelWasSelectHandler: (() -> Void)?
+    
+    public var backViewTapHandler: (() -> Void)?
+    
     
     @objc func londonCoord(){
-        cityHandler?(self.london.name, self.london.longitude, self.london.latitude)
+        self.londonWasSelectHandler?()
+        self.backViewTapHandler?()
     }
     
     @objc func berlinSelect(){
-        cityHandler?(self.berlin.name, self.berlin.latitude, self.berlin.longitude)
+        self.berlinWasSelectHandler?()
+        self.backViewTapHandler?()
     }
     @objc func newYorkMeteo(){
-        cityHandler?(self.newYork.name, self.newYork.latitude, self.newYork.longitude)
+        self.newYorkWasSelectHandler?()
+        self.backViewTapHandler?()
     }
     @objc func marcelMeteo(){
-        cityHandler?(self.marcel.name, self.marcel.latitude, self.marcel.longitude)
+        self.marcelWasSelectHandler?()
+        self.backViewTapHandler?()
     }
     @objc func backView(){
-        self.navigationController?.popViewController(animated: true)
+        self.backViewTapHandler?()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red: 51.0/255, green: 51.0/255, blue: 153.0/255, alpha: 1.0)
-        self.view.addSubview(self.backButton)
-        self.view.addSubview(self.label)
-        self.view.addSubview(self.londonButton)
-        self.view.addSubview(berlinButton)
-        self.view.addSubview(self.newYorkButton)
-        self.view.addSubview(self.marcelButton)
+   
+    
+    func configure(){
+        self.addSubview(self.backButton)
+        self.addSubview(self.label)
+        self.addSubview(self.londonButton)
+        self.addSubview(berlinButton)
+        self.addSubview(self.newYorkButton)
+        self.addSubview(self.marcelButton)
         
         self.backButton.snp.makeConstraints { pin in
             pin.top.equalToSuperview().offset(40)
@@ -133,7 +145,18 @@ class CityesViewController: UIViewController {
             pin.width.equalTo(self.newYorkButton.snp.width)
         }
     }
-    
 }
 
-
+extension ThirdScreenView {
+        func setGradientBackground(){
+            let color1 = UIColor(red: 51.0/255 ,green: 20.0/255, blue: 61.0/255, alpha: 1.0).cgColor
+            let color2 = UIColor(red: 52.0/255, green: 28.0/255, blue: 109.0/255, alpha: 1.0).cgColor
+            let color3 = UIColor(red: 51.0/255 ,green: 20.0/255, blue: 61.0/255, alpha: 1.0).cgColor
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.frame = self.bounds
+            gradientLayer.colors = [color1, color2, color3]
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+            self.layer.insertSublayer(gradientLayer, at: 0)
+        }
+}
